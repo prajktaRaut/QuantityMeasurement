@@ -4,6 +4,18 @@ import java.util.Objects;
 
 public class Length {
 
+    private static final double FEET_TO_INCH = 12.0;
+
+    public boolean compare(Length thatUnits) {
+        if (this.unit.equals(Unit.FEET) && thatUnits.unit.equals(Unit.FEET))
+            return Double.compare(this.value,thatUnits.value)==0;
+        if (this.unit.equals(Unit.FEET) && thatUnits.unit.equals(Unit.INCH))
+            return Double.compare(this.value*FEET_TO_INCH,thatUnits.value)==0;
+        if (this.unit.equals(Unit.INCH)&& thatUnits.unit.equals(Unit.FEET))
+            return Double.compare(this.value/FEET_TO_INCH,thatUnits.value)==0;
+        return false;
+    }
+
     enum Unit{FEET,INCH}
     private final Unit unit;
     private final double value;
@@ -11,7 +23,6 @@ public class Length {
     public Length(Unit unit, double value) {
         this.unit=unit;
         this.value=value;
-
     }
 
     @Override

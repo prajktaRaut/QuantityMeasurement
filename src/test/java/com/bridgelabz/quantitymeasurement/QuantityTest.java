@@ -31,7 +31,7 @@ public class QuantityTest {
     public void given0InchAnd1Inch_ShouldReturnNotEquals() {
         Length inch1 = new Length(Length.Unit.INCH,0.0);
         Length inch2 = new Length(Length.Unit.INCH,1.0);
-        Assert.assertEquals(inch1,inch2);
+        Assert.assertNotEquals(inch1,inch2);
     }
 
     @Test
@@ -39,5 +39,45 @@ public class QuantityTest {
         Length feet = new Length(Length.Unit.FEET, 0.0);
         Length inch = new Length(Length.Unit.INCH, 0.0);
         Assert.assertNotEquals(feet,inch);
+    }
+
+    @Test
+    public void given0FeetAnd0Inch_ShouldRetrunEqualLength() {
+        Length feet = new Length(Length.Unit.FEET, 0.0);
+        Length inch = new Length(Length.Unit.INCH, 0.0);
+        boolean compareCheck = feet.compare(inch);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given1FeetAnd1Inch_ShouldNotReturnEqual() {
+        Length feet = new Length(Length.Unit.FEET, 0.0);
+        Length inch = new Length(Length.Unit.INCH, 0.0);
+        boolean compareCheck = feet.compare(inch);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given1FeetAndFeet_ShouldReturnEqualLength() {
+        Length feet1 = new Length(Length.Unit.FEET, 1.0);
+        Length feet2 = new Length(Length.Unit.FEET, 1.0);
+        boolean compareCheck = feet1.compare(feet2);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given12InchAnd1Feet_ShouldRetrunEqual() {
+        Length inch = new Length(Length.Unit.INCH, 12.0);
+        Length feet = new Length(Length.Unit.FEET, 1.0);
+        boolean compareCheck = inch.compare(feet);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given10InchAnd1Feet_ShouldReturnNotEqual() {
+        Length inch = new Length(Length.Unit.INCH, 10.0);
+        Length feet = new Length(Length.Unit.FEET, 1.0);
+        boolean compareCheck = inch.compare(feet);
+        Assert.assertFalse(compareCheck);
     }
 }
