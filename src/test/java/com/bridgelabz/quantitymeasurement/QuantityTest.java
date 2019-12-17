@@ -112,17 +112,24 @@ public class QuantityTest {
     }
 
     @Test
-    public void givenBothUnits_HasSameReferance_ShouldReturnEquals() {
+    public void givenBothFeet_HasSameReferance_ShouldReturnEquals() {
         Length length1 = new Length(Length.Unit.FEET, 0.0);
         Length length2 = new Length(Length.Unit.FEET, 0.0);
         Assert.assertEquals(length1,length2);
     }
-
 
     @Test
     public void givenDifferentUnits_HasDifferentReferance_ShouldReturnNotEquals() {
         Length length1 = new Length(Length.Unit.INCH, 0.0);
         Length length2 = new Length(Length.Unit.FEET, 0.0);
         Assert.assertNotEquals(length1,length2);
+    }
+
+
+    @Test
+    public void givenBothInches_HasSameReferance_ShouldReturnEquals() {
+        Length length1 = new Length(Length.Unit.INCH, 0.0);
+        Length length2 = new Length(Length.Unit.INCH, 0.0);
+        Assert.assertEquals(length1,length2);
     }
 }
