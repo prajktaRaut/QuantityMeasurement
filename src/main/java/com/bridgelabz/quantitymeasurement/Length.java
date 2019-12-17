@@ -1,7 +1,5 @@
 package com.bridgelabz.quantitymeasurement;
 
-import java.util.Objects;
-
 public class Length {
 
     private static final double FEET_TO_INCH = 12.0;
@@ -18,9 +16,9 @@ public class Length {
 
     enum Unit{FEET,INCH}
     private final Unit unit;
-    private final double value;
+    private final Double value;
 
-    public Length(Unit unit, double value) {
+    public Length(Unit unit, Double value) {
         this.unit=unit;
         this.value=value;
     }
