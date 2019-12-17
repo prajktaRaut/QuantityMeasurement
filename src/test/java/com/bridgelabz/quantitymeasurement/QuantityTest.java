@@ -90,9 +90,24 @@ public class QuantityTest {
     }
 
     @Test
-    public void givenFeetNull_ShouldReturnEqual() {
-        Length feet1 = new Length(Length.Unit.FEET,null);
-        boolean result = feet1.equals(null);
+    public void givenFeetNull_ShouldReturnFalse() {
+        Length feet = new Length(Length.Unit.FEET,null);
+        boolean result = feet.equals(null);
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void givenInchNull_ShouldReturnFalse() {
+        Length inch = new Length(Length.Unit.INCH, null);
+        boolean result = inch.equals(null);
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void givenUnitIsInvalid_ShouldReturnFalse() {
+        Length invalidUnit = new Length(Length.Unit.INVALID_UNIT, 0.0);
+        Length inch = new Length(Length.Unit.INCH, 0.0);
+        boolean result = invalidUnit.compare(inch);
         Assert.assertFalse(result);
     }
 }

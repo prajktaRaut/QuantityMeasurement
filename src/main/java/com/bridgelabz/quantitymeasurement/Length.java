@@ -3,6 +3,10 @@ package com.bridgelabz.quantitymeasurement;
 public class Length {
 
     private static final double FEET_TO_INCH = 12.0;
+    enum Unit{FEET,INCH,INVALID_UNIT}
+    private final Unit unit;
+    private final Double value;
+
 
     public boolean compare(Length thatUnits) {
         if (this.unit.equals(Unit.FEET) && thatUnits.unit.equals(Unit.FEET))
@@ -13,11 +17,6 @@ public class Length {
             return Double.compare(this.value/FEET_TO_INCH,thatUnits.value)==0;
         return false;
     }
-
-    enum Unit{FEET,INCH}
-    private final Unit unit;
-    private final Double value;
-
     public Length(Unit unit, Double value) {
         this.unit=unit;
         this.value=value;
