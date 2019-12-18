@@ -175,9 +175,18 @@ public class QuantityTest {
 
     @Test
     public void given2InchAnd5Cm_ShouldReturnEqual() {
-        Length inch= new Length(Units.INCH, 2.0);
-        Length centimeter = new Length(Units.CENTIMETER, 5.0);
+        Length inch= new Length(Units.INCH, 3.0);
+        Length centimeter = new Length(Units.CENTIMETER, 7.5);
         boolean result = inch.compare(centimeter);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given2inchPlus2InchAnd4Inch_ShouldReturnEqual() {
+        Length inchValue1 = new Length(Units.INCH, 2.0);
+        Length inchValue2 = new Length(Units.INCH, 2.0);
+        Length inchValue3 = new Length(Units.INCH, 4.0);
+        boolean result = inchValue3.addAndCompare(inchValue1, inchValue2, inchValue3);
         Assert.assertTrue(result);
     }
 }

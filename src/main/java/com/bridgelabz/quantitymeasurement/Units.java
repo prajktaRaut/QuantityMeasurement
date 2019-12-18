@@ -1,7 +1,7 @@
 package com.bridgelabz.quantitymeasurement;
 
 public enum Units {
-    INCH(1.0), FEET(12.0), YARD(36.0), CENTIMETER(0.4);
+    INCH(1), FEET(12), YARD(36), CENTIMETER(0.4);
 
     private final double baseUnitConversion;
 
@@ -12,5 +12,4 @@ public enum Units {
     public double getValue() {
         return this.baseUnitConversion;
     }
-
 }
