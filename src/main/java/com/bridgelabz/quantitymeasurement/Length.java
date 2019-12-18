@@ -2,32 +2,17 @@ package com.bridgelabz.quantitymeasurement;
 
 public class Length {
 
-    private static final double FEET_TO_INCH = 12.0;
-    enum Unit{FEET,INCH, YARD, INVALID_UNIT}
-    private final Unit unit;
-    private final Double value;
-
+    public final Double value;
+    public Units units;
+    public Length(Units unit, Double value) {
+        this.units=unit;
+        this.value=value;
+    }
 
     public boolean compare(Length thatUnits) {
-        if (this.unit.equals(Unit.FEET) && thatUnits.unit.equals(Unit.FEET))
-            return Double.compare(this.value,thatUnits.value)==0;
-        if (this.unit.equals(Unit.FEET) && thatUnits.unit.equals(Unit.INCH))
-            return Double.compare(this.value*FEET_TO_INCH,thatUnits.value)==0;
-        if (this.unit.equals(Unit.INCH)&& thatUnits.unit.equals(Unit.FEET))
-            return Double.compare(this.value/FEET_TO_INCH,thatUnits.value)==0;
-        if (this.unit.equals(Unit.YARD) && thatUnits.unit.equals(Unit.INCH))
-            return Double.compare(this.value*FEET_TO_INCH*3,thatUnits.value)==0;
-        if (this.unit.equals(Unit.INCH) && thatUnits.unit.equals(Unit.YARD))
-            return Double.compare(this.value/(FEET_TO_INCH*3),thatUnits.value)==0;
-        if (this.unit.equals(Unit.YARD) && thatUnits.unit.equals(Unit.FEET))
-            return Double.compare(((this.value*FEET_TO_INCH*3)/FEET_TO_INCH),thatUnits.value)==0;
-        if (this.unit.equals(Unit.FEET) && thatUnits.unit.equals(Unit.YARD))
-            return Double.compare(this.value*FEET_TO_INCH,(thatUnits.value*FEET_TO_INCH*3))==0;
-        return false;
-    }
-    public Length(Unit unit, Double value) {
-        this.unit=unit;
-        this.value=value;
+        Double value1 = this.units.getValue()*this.value;
+        Double value2=thatUnits.units.getValue()*thatUnits.value;
+        return (value1.compareTo(value2)==0);
     }
 
     @Override
@@ -36,6 +21,6 @@ public class Length {
         if (o == null || getClass() != o.getClass()) return false;
         Length length = (Length) o;
         return Double.compare(length.value, value) == 0 &&
-                unit == length.unit;
+                                units == length.units;
     }
 }
