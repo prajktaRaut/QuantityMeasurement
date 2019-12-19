@@ -246,11 +246,19 @@ public class QuantityTest {
 
     @Test
     public void given1GallonAnd3dot78liter_ShouldReturnEqaulsTo7dot57liters() {
-        Quantity feetValue1 = new Quantity(Units.GALLON, 1.0);
-        Quantity feetValue2 = new Quantity(Units.LITRE, 3.78);
-        double sumValue = feetValue1.unitsAddition(feetValue2)/1000;
+        Quantity gallonValue = new Quantity(Units.GALLON, 1.0);
+        Quantity literValue1 = new Quantity(Units.LITRE, 3.78);
+        double sumValue = gallonValue.unitsAddition(literValue1);
         Assert.assertEquals(7.57,sumValue,0.1);
     }
 
-
+    @Test
+    public void given1LiterAnd1000ml_ShouldReturnEqualsTo2Liters() {
+        Quantity literValue1 = new Quantity(Units.LITRE, 1.0);
+        Quantity milliliterValue = new Quantity(Units.MILLILITER, 1000.0);
+        Quantity literValue2 = new Quantity(Units.LITRE, 2.0);
+        double sumValue = literValue1.unitsAddition(milliliterValue);
+        boolean result = literValue2.compare(new Quantity(Units.LITRE, sumValue));
+        Assert.assertTrue(result);
+    }
 }
