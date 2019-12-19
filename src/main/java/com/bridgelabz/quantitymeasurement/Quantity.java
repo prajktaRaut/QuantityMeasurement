@@ -1,15 +1,15 @@
 package com.bridgelabz.quantitymeasurement;
 
-public class Length {
+public class Quantity {
 
     public final Double value;
     public Units units;
-    public Length(Units unit, Double value) {
+    public Quantity(Units unit, Double value) {
         this.units=unit;
         this.value=value;
     }
 
-    public boolean compare(Length thatUnits) {
+    public boolean compare(Quantity thatUnits) {
         Double value1 = this.units.getValue()*this.value;
         Double value2= thatUnits.units.getValue()*thatUnits.value;
         return (value1.compareTo(value2)==0);
@@ -19,12 +19,12 @@ public class Length {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Length length = (Length) o;
-        return Double.compare(length.value, value) == 0 &&
-                                units == length.units;
+        Quantity quantity = (Quantity) o;
+        return Double.compare(quantity.value, value) == 0 &&
+                                units == quantity.units;
     }
 
-    public double unitsAddition(Length thatUnits) {
+    public double unitsAddition(Quantity thatUnits) {
         Double value1 = this.units.getValue()*this.value;
         Double value2= thatUnits.units.getValue()*thatUnits.value;
         return (value1 + value2);
