@@ -200,4 +200,15 @@ public class QuantityTest {
         boolean result = inchValue2.compare(new Length(Units.INCH, sumValue));
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given1FeetAnd1Feet_ShouldReturnEqaulsTo24Inch() {
+        Length feetValue = new Length(Units.FEET, 1.0);
+        Length inchValue1 = new Length(Units.FEET, 1.0);
+        Length inchValue2 = new Length(Units.INCH, 24.0);
+        double sumValue = feetValue.unitsAddition(inchValue1);
+        boolean result = inchValue2.compare(new Length(Units.INCH, sumValue));
+        Assert.assertTrue(result);
+    }
+
 }
