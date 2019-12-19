@@ -236,6 +236,14 @@ public class QuantityTest {
     }
 
     @Test
+    public void given1LitreAnd1Mililiter_ShouldReturnEquals() {
+        Quantity literValue = new Quantity(Units.LITRE, 1.0);
+        Quantity miliLiterValue = new Quantity(Units.MILLILITER, 1.0);
+        boolean result = literValue.compare(miliLiterValue,Units.LITRE);
+        Assert.assertFalse(result);
+    }
+
+    @Test
     public void given1GallonAnd3dot78Litre_ShouldReturnEquals() {
         Quantity gallonValue = new Quantity(Units.GALLON, 1.0);
         Quantity literValue = new Quantity(Units.LITRE, 3.78);
@@ -267,6 +275,14 @@ public class QuantityTest {
         Quantity gramValue = new Quantity(Units.GRAM, 1000.0);
         boolean result = kilogramValue.compare(gramValue,Units.KILOGRAM);
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given1KgAnd1Gram_ShouldReturnEquals() {
+        Quantity kilogramValue = new Quantity(Units.KILOGRAM, 1.0);
+        Quantity gramValue = new Quantity(Units.GRAM, 1.0);
+        boolean result = kilogramValue.compare(gramValue,Units.KILOGRAM);
+        Assert.assertFalse(result);
     }
 
     @Test
