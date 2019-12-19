@@ -227,4 +227,12 @@ public class QuantityTest {
         boolean result = liter1.compare(litre2);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given1LitreAnd1000Mililiter_ShouldReturnEquals() {
+        Length liter = new Length(Units.LITRE, 1.0);
+        Length miliLiter = new Length(Units.MILLILITER, 1000.0);
+        boolean result = liter.compare(miliLiter);
+        Assert.assertTrue(result);
+    }
 }
