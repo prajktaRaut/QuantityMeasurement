@@ -182,12 +182,22 @@ public class QuantityTest {
     }
 
     @Test
-    public void given2inchPlus2InchAnd4Inch_ShouldReturnEqual() {
+    public void given2inchPlus2InchAnd4Inch_ShouldReturnEqualsTo4Inch() {
         Length inchValue1 = new Length(Units.INCH, 2.0);
         Length inchValue2 = new Length(Units.INCH, 2.0);
         Length inchValue3 = new Length(Units.INCH, 4.0);
         double sumValue = inchValue1.unitsAddition(inchValue2);
         boolean result = inchValue3.compare(new Length(Units.INCH, sumValue));
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given1FeetAnd2Inch_ShouldReturnEqaulsTo14Inch() {
+        Length feetValue = new Length(Units.FEET, 1.0);
+        Length inchValue1 = new Length(Units.INCH, 2.0);
+        Length inchValue2 = new Length(Units.INCH, 14.0);
+        double sumValue = feetValue.unitsAddition(inchValue1);
+        boolean result = inchValue2.compare(new Length(Units.INCH, sumValue));
         Assert.assertTrue(result);
     }
 }
