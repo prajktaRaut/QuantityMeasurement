@@ -302,4 +302,12 @@ public class QuantityTest {
         boolean result = celsius.compare(fahrenheit, Units.CELSIUS);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given1celsiusAnd1Fahrenheit_ShouldReturnNotEqual() {
+        Quantity celcisuValue = new Quantity(Units.CELSIUS, 1.0);
+        Quantity fahrenheitValue = new Quantity(Units.FAHRENHEIT, 1.0);
+        boolean result = celcisuValue.compare(fahrenheitValue, Units.CELSIUS);
+        Assert.assertFalse(result);
+    }
 }
