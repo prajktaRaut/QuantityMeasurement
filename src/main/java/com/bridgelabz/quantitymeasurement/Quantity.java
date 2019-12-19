@@ -9,7 +9,7 @@ public class Quantity {
         this.value=value;
     }
 
-    public boolean compare(Quantity thatUnits) {
+    public boolean compare(Quantity thatUnits, Units comparingUnitType) {
         Double value1 = this.units.getValue()*this.value;
         Double value2= thatUnits.units.getValue()*thatUnits.value;
         return (value1.compareTo(value2)==0);

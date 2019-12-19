@@ -44,7 +44,7 @@ public class QuantityTest {
     public void given0FeetAnd0Inch_ShouldRetrunEqualLength() {
         Quantity feet = new Quantity(Units.FEET, 0.0);
         Quantity inch = new Quantity(Units.INCH, 0.0);
-        boolean compareCheck = feet.compare(inch);
+        boolean compareCheck = feet.compare(inch,Units.INCH);
         Assert.assertTrue(compareCheck);
     }
 
@@ -52,7 +52,7 @@ public class QuantityTest {
     public void given1FeetAnd1Inch_ShouldNotReturnEqual() {
         Quantity feet = new Quantity(Units.FEET, 0.0);
         Quantity inch = new Quantity(Units.INCH, 0.0);
-        boolean compareCheck = feet.compare(inch);
+        boolean compareCheck = feet.compare(inch,Units.INCH);
         Assert.assertTrue(compareCheck);
     }
 
@@ -60,7 +60,7 @@ public class QuantityTest {
     public void given1FeetAndFeet_ShouldReturnEqualLength() {
         Quantity feet1 = new Quantity(Units.FEET, 1.0);
         Quantity feet2 = new Quantity(Units.FEET, 1.0);
-        boolean compareCheck = feet1.compare(feet2);
+        boolean compareCheck = feet1.compare(feet2,Units.INCH);
         Assert.assertTrue(compareCheck);
     }
 
@@ -68,7 +68,7 @@ public class QuantityTest {
     public void given12InchAnd1Feet_ShouldRetrunEqual() {
         Quantity inch = new Quantity(Units.INCH, 12.0);
         Quantity feet = new Quantity(Units.FEET, 1.0);
-        boolean compareCheck = inch.compare(feet);
+        boolean compareCheck = inch.compare(feet,Units.INCH);
         Assert.assertTrue(compareCheck);
     }
 
@@ -76,7 +76,7 @@ public class QuantityTest {
     public void given10InchAnd1Feet_ShouldReturnNotEqual() {
         Quantity inch = new Quantity(Units.INCH, 10.0);
         Quantity feet = new Quantity(Units.FEET, 1.0);
-        boolean compareCheck = inch.compare(feet);
+        boolean compareCheck = inch.compare(feet,Units.INCH);
         Assert.assertFalse(compareCheck);
     }
 
@@ -84,7 +84,7 @@ public class QuantityTest {
     public void given1FeetAnd12Inch_ShouldRetrunEqual() {
         Quantity feet = new Quantity(Units.FEET, 1.0);
         Quantity inch = new Quantity(Units.INCH, 12.0);
-        boolean compareCheck = feet.compare(inch);
+        boolean compareCheck = feet.compare(inch,Units.INCH);
         Assert.assertTrue(compareCheck);
     }
 
@@ -128,7 +128,7 @@ public class QuantityTest {
     public void given1YardAnd36Inch_ShouldReturnEqual() {
         Quantity yard = new Quantity(Units.YARD, 1.0);
         Quantity inch = new Quantity(Units.INCH, 36.0);
-        boolean result = yard.compare(inch);
+        boolean result = yard.compare(inch,Units.INCH);
         Assert.assertTrue(result);
     }
 
@@ -136,7 +136,7 @@ public class QuantityTest {
     public void given36InchAnd1Yard_ShouldReturnEqual() {
         Quantity inch = new Quantity(Units.INCH, 36.0);
         Quantity yard = new Quantity(Units.YARD, 1.0);
-        boolean result = inch.compare(yard);
+        boolean result = inch.compare(yard,Units.YARD);
         Assert.assertTrue(result);
     }
 
@@ -144,7 +144,7 @@ public class QuantityTest {
     public void given1YardAnd3Feet_ShouldReturnEqual() {
         Quantity yard = new Quantity(Units.YARD, 1.0);
         Quantity feet = new Quantity(Units.FEET, 3.0);
-        boolean result = yard.compare(feet);
+        boolean result = yard.compare(feet,Units.YARD);
         Assert.assertTrue(result);
     }
 
@@ -152,7 +152,7 @@ public class QuantityTest {
     public void given3FeetAnd1Yard_ShouldReturnEqual() {
         Quantity feet = new Quantity(Units.FEET, 3.0);
         Quantity yard = new Quantity(Units.YARD, 1.0);
-        boolean result = feet.compare(yard);
+        boolean result = feet.compare(yard,Units.YARD);
         Assert.assertTrue(result);
     }
 
@@ -160,7 +160,7 @@ public class QuantityTest {
     public void given1FeetAnd1Yard_ShouldReturnNotEqual() {
         Quantity feet = new Quantity(Units.FEET, 1.0);
         Quantity yard = new Quantity(Units.YARD, 1.0);
-        boolean result = feet.compare(yard);
+        boolean result = feet.compare(yard,Units.YARD);
         Assert.assertFalse(result);
     }
 
@@ -168,7 +168,7 @@ public class QuantityTest {
     public void given1InchAnd1Yard_ShouldReturnNotEqual() {
         Quantity inch = new Quantity(Units.INCH, 1.0);
         Quantity yard = new Quantity(Units.YARD, 1.0);
-        boolean result = inch.compare(yard);
+        boolean result = inch.compare(yard,Units.YARD);
         Assert.assertFalse(result);
     }
 
@@ -176,7 +176,7 @@ public class QuantityTest {
     public void given2InchAnd5Cm_ShouldReturnEqual() {
         Quantity inch= new Quantity(Units.INCH, 3.0);
         Quantity centimeter = new Quantity(Units.CENTIMETER, 7.5);
-        boolean result = inch.compare(centimeter);
+        boolean result = inch.compare(centimeter,Units.CENTIMETER);
         Assert.assertTrue(result);
     }
 
@@ -186,7 +186,7 @@ public class QuantityTest {
         Quantity inchValue2 = new Quantity(Units.INCH, 2.0);
         Quantity inchValue3 = new Quantity(Units.INCH, 4.0);
         double sumValue = inchValue1.unitsAddition(inchValue2);
-        boolean result = inchValue3.compare(new Quantity(Units.INCH, sumValue));
+        boolean result = inchValue3.compare(new Quantity(Units.INCH, sumValue),Units.INCH);
         Assert.assertTrue(result);
     }
 
@@ -196,7 +196,7 @@ public class QuantityTest {
         Quantity inchValue1 = new Quantity(Units.INCH, 2.0);
         Quantity inchValue2 = new Quantity(Units.INCH, 14.0);
         double sumValue = feetValue.unitsAddition(inchValue1);
-        boolean result = inchValue2.compare(new Quantity(Units.INCH, sumValue));
+        boolean result = inchValue2.compare(new Quantity(Units.INCH, sumValue),Units.INCH);
         Assert.assertTrue(result);
     }
 
@@ -206,7 +206,7 @@ public class QuantityTest {
         Quantity feetValue2 = new Quantity(Units.FEET, 1.0);
         Quantity inchValue = new Quantity(Units.INCH, 24.0);
         double sumValue = feetValue1.unitsAddition(feetValue2);
-        boolean result = inchValue.compare(new Quantity(Units.INCH, sumValue));
+        boolean result = inchValue.compare(new Quantity(Units.INCH, sumValue),Units.INCH);
         Assert.assertTrue(result);
     }
 
@@ -216,7 +216,7 @@ public class QuantityTest {
         Quantity centimeterValue = new Quantity(Units.CENTIMETER, 2.5);
         Quantity inchValue2 = new Quantity(Units.INCH, 3.0);
         double sumValue = inchValue1.unitsAddition(centimeterValue);
-        boolean result = inchValue2.compare(new Quantity(Units.INCH, sumValue));
+        boolean result = inchValue2.compare(new Quantity(Units.INCH, sumValue),Units.INCH);
         Assert.assertTrue(result);
     }
 
@@ -224,7 +224,7 @@ public class QuantityTest {
     public void given1LitreAnd1Litre_ShouldReturnEquals() {
         Quantity liter1 = new Quantity(Units.LITRE, 1.0);
         Quantity litre2 = new Quantity(Units.LITRE, 1.0);
-        boolean result = liter1.compare(litre2);
+        boolean result = liter1.compare(litre2,Units.LITRE);
         Assert.assertTrue(result);
     }
 
@@ -232,7 +232,7 @@ public class QuantityTest {
     public void given1LitreAnd1000Mililiter_ShouldReturnEquals() {
         Quantity liter = new Quantity(Units.LITRE, 1.0);
         Quantity miliLiter = new Quantity(Units.MILLILITER, 1000.0);
-        boolean result = liter.compare(miliLiter);
+        boolean result = liter.compare(miliLiter,Units.LITRE);
         Assert.assertTrue(result);
     }
 
@@ -240,7 +240,7 @@ public class QuantityTest {
     public void given1GallonAnd3dot78Litre_ShouldReturnEquals() {
         Quantity gallon = new Quantity(Units.GALLON, 1.0);
         Quantity liter = new Quantity(Units.LITRE, 3.78);
-        boolean result = gallon.compare(liter);
+        boolean result = gallon.compare(liter,Units.LITRE);
         Assert.assertTrue(result);
     }
 
@@ -258,7 +258,7 @@ public class QuantityTest {
         Quantity milliliterValue = new Quantity(Units.MILLILITER, 1000.0);
         Quantity literValue2 = new Quantity(Units.LITRE, 2.0);
         double sumValue = literValue1.unitsAddition(milliliterValue);
-        boolean result = literValue2.compare(new Quantity(Units.LITRE, sumValue));
+        boolean result = literValue2.compare(new Quantity(Units.LITRE, sumValue),Units.LITRE);
         Assert.assertTrue(result);
     }
 
@@ -266,7 +266,7 @@ public class QuantityTest {
     public void given1KgAnd1000Gram_ShouldReturnEquals() {
         Quantity kilogramValue = new Quantity(Units.KILOGRAM, 1.0);
         Quantity gramValue = new Quantity(Units.GRAM, 1000.0);
-        boolean result = kilogramValue.compare(gramValue);
+        boolean result = kilogramValue.compare(gramValue,Units.KILOGRAM);
         Assert.assertTrue(result);
     }
 
@@ -274,7 +274,7 @@ public class QuantityTest {
     public void given1TonneAnd1000Kg_ShouldReturnEquals() {
         Quantity tonneValue = new Quantity(Units.TONNE, 1.0);
         Quantity kilogramValue = new Quantity(Units.KILOGRAM, 1000.0);
-        boolean result = tonneValue.compare(kilogramValue);
+        boolean result = tonneValue.compare(kilogramValue,Units.KILOGRAM);
         Assert.assertTrue(result);
     }
 
@@ -284,7 +284,7 @@ public class QuantityTest {
         Quantity gramValue = new Quantity(Units.GRAM, 1000.0);
         Quantity kilogramValue = new Quantity(Units.KILOGRAM, 1001.0);
         double sumValue = tonneValue.unitsAddition(gramValue);
-        boolean result = kilogramValue.compare(new Quantity(Units.LITRE, sumValue));
+        boolean result = kilogramValue.compare(new Quantity(Units.LITRE, sumValue),Units.KILOGRAM);
         Assert.assertTrue(result);
     }
 
