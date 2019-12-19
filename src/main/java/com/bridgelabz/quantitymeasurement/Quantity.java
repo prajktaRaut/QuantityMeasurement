@@ -10,12 +10,6 @@ public class Quantity {
     }
 
     public boolean compare(Quantity thatUnits, Units comparingUnitType) {
-        Double value1 = this.units.getValue()*this.value;
-        Double value2= thatUnits.units.getValue()*thatUnits.value;
-        return (value1.compareTo(value2)==0);
-    }
-
-    public boolean compareTemperature(Quantity thatUnits, Units comparingUnitType) {
         switch (comparingUnitType) {
             case CELSIUS:
                 Double value1 = ((this.value * 9 / 5)+ 32);
