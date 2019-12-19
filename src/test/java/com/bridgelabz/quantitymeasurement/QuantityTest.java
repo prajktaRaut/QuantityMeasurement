@@ -219,4 +219,12 @@ public class QuantityTest {
         boolean result = inchValue2.compare(new Length(Units.INCH, sumValue));
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given1LitreAnd1Litre_ShouldReturnEquals() {
+        Length liter1 = new Length(Units.LITRE, 1.0);
+        Length litre2 = new Length(Units.LITRE, 1.0);
+        boolean result = liter1.compare(litre2);
+        Assert.assertTrue(result);
+    }
 }
