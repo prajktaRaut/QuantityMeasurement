@@ -6,177 +6,176 @@ public class QuantityTest {
 
     @Test
     public void given0FeetAnd0Feet_ShouldReturnFeet() {
-        Quantity feet1 = new Quantity(Units.FEET,0.0);
-        Quantity feet2= new Quantity(Units.FEET,0.0);
-        Assert.assertEquals(feet1,feet2);
+        Quantity feetValue1 = new Quantity(Units.FEET,0.0);
+        Quantity feetValue2= new Quantity(Units.FEET,0.0);
+        Assert.assertEquals(feetValue1,feetValue2);
     }
 
     @Test
     public void given0FeetAnd1Feet_ShouldReturnNotEqual() {
-        Quantity feet1 = new Quantity(Units.FEET,0.0);
-        Quantity feet2 = new Quantity(Units.FEET,1.0);
-        boolean equals = feet1.equals(feet2);
+        Quantity feetValue1 = new Quantity(Units.FEET,0.0);
+        Quantity feetValue2 = new Quantity(Units.FEET,1.0);
+        boolean equals = feetValue1.equals(feetValue2);
         Assert.assertFalse(equals);
     }
 
     @Test
     public void given0InchAnd0Inch_ShouldReturnEqual() {
-        Quantity inch1 = new Quantity(Units.INCH,0.0);
-        Quantity inch2 = new Quantity(Units.INCH,0.0);
-        Assert.assertEquals(inch1,inch2);
+        Quantity inchValue1 = new Quantity(Units.INCH,0.0);
+        Quantity inchValue2 = new Quantity(Units.INCH,0.0);
+        Assert.assertEquals(inchValue1,inchValue2);
     }
 
     @Test
     public void given0InchAnd1Inch_ShouldReturnNotEquals() {
-        Quantity inch1 = new Quantity(Units.INCH,0.0);
-        Quantity inch2 = new Quantity(Units.INCH,1.0);
-        Assert.assertNotEquals(inch1,inch2);
+        Quantity inchValue1 = new Quantity(Units.INCH,0.0);
+        Quantity inchValue2 = new Quantity(Units.INCH,1.0);
+        Assert.assertNotEquals(inchValue1,inchValue2);
     }
 
     @Test
     public void given1FeetAnd1Inch_ShouldReturnNotEqual() {
-        Quantity feet = new Quantity(Units.FEET, 0.0);
-        Quantity inch = new Quantity(Units.INCH, 0.0);
-        Assert.assertNotEquals(feet,inch);
+        Quantity feetValue = new Quantity(Units.FEET, 0.0);
+        Quantity inchValue = new Quantity(Units.INCH, 0.0);
+        Assert.assertNotEquals(feetValue,inchValue);
     }
 
     @Test
     public void given0FeetAnd0Inch_ShouldRetrunEqualLength() {
-        Quantity feet = new Quantity(Units.FEET, 0.0);
-        Quantity inch = new Quantity(Units.INCH, 0.0);
-        boolean compareCheck = feet.compare(inch,Units.INCH);
+        Quantity feetValue = new Quantity(Units.FEET, 0.0);
+        Quantity inchValue = new Quantity(Units.INCH, 0.0);
+        boolean compareCheck = feetValue.compare(inchValue,Units.INCH);
         Assert.assertTrue(compareCheck);
     }
 
     @Test
     public void given1FeetAnd1Inch_ShouldNotReturnEqual() {
-        Quantity feet = new Quantity(Units.FEET, 0.0);
-        Quantity inch = new Quantity(Units.INCH, 0.0);
-        boolean compareCheck = feet.compare(inch,Units.INCH);
+        Quantity feetValue = new Quantity(Units.FEET, 0.0);
+        Quantity inchValue = new Quantity(Units.INCH, 0.0);
+        boolean compareCheck = feetValue.compare(inchValue,Units.INCH);
         Assert.assertTrue(compareCheck);
     }
 
     @Test
     public void given1FeetAndFeet_ShouldReturnEqualLength() {
-        Quantity feet1 = new Quantity(Units.FEET, 1.0);
-        Quantity feet2 = new Quantity(Units.FEET, 1.0);
-        boolean compareCheck = feet1.compare(feet2,Units.INCH);
+        Quantity feetValue1 = new Quantity(Units.FEET, 1.0);
+        Quantity feetValue2 = new Quantity(Units.FEET, 1.0);
+        boolean compareCheck = feetValue1.compare(feetValue2,Units.INCH);
         Assert.assertTrue(compareCheck);
     }
 
     @Test
     public void given12InchAnd1Feet_ShouldRetrunEqual() {
-        Quantity inch = new Quantity(Units.INCH, 12.0);
-        Quantity feet = new Quantity(Units.FEET, 1.0);
-        boolean compareCheck = inch.compare(feet,Units.INCH);
+        Quantity inchValue = new Quantity(Units.INCH, 12.0);
+        Quantity feetValue = new Quantity(Units.FEET, 1.0);
+        boolean compareCheck = inchValue.compare(feetValue,Units.INCH);
         Assert.assertTrue(compareCheck);
     }
 
     @Test
     public void given10InchAnd1Feet_ShouldReturnNotEqual() {
-        Quantity inch = new Quantity(Units.INCH, 10.0);
-        Quantity feet = new Quantity(Units.FEET, 1.0);
-        boolean compareCheck = inch.compare(feet,Units.INCH);
+        Quantity inchValue = new Quantity(Units.INCH, 10.0);
+        Quantity feetValue = new Quantity(Units.FEET, 1.0);
+        boolean compareCheck = inchValue.compare(feetValue,Units.INCH);
         Assert.assertFalse(compareCheck);
     }
 
     @Test
     public void given1FeetAnd12Inch_ShouldRetrunEqual() {
-        Quantity feet = new Quantity(Units.FEET, 1.0);
-        Quantity inch = new Quantity(Units.INCH, 12.0);
-        boolean compareCheck = feet.compare(inch,Units.INCH);
+        Quantity feetValue = new Quantity(Units.FEET, 1.0);
+        Quantity inchValue = new Quantity(Units.INCH, 12.0);
+        boolean compareCheck = feetValue.compare(inchValue,Units.INCH);
         Assert.assertTrue(compareCheck);
     }
 
     @Test
     public void givenFeetNull_ShouldReturnFalse() {
-        Quantity feet = new Quantity(Units.FEET,null);
-        boolean result = feet.equals(null);
+        Quantity feetValue = new Quantity(Units.FEET,null);
+        boolean result = feetValue.equals(null);
         Assert.assertFalse(result);
     }
 
     @Test
     public void givenInchNull_ShouldReturnFalse() {
-        Quantity inch = new Quantity(Units.INCH, null);
-        boolean result = inch.equals(null);
+        Quantity inchValue = new Quantity(Units.INCH, null);
+        boolean result = inchValue.equals(null);
         Assert.assertFalse(result);
     }
 
     @Test
     public void givenBothFeet_HasSameReferance_ShouldReturnEquals() {
-        Quantity quantity1 = new Quantity(Units.FEET, 0.0);
-        Quantity quantity2 = new Quantity(Units.FEET, 0.0);
-        Assert.assertEquals(quantity1, quantity2);
+        Quantity feetValue1 = new Quantity(Units.FEET, 0.0);
+        Quantity feetValue2 = new Quantity(Units.FEET, 0.0);
+        Assert.assertEquals(feetValue1, feetValue2);
     }
 
     @Test
     public void givenDifferentUnits_HasDifferentReferance_ShouldReturnNotEquals() {
-        Quantity quantity1 = new Quantity(Units.INCH, 0.0);
-        Quantity quantity2 = new Quantity(Units.FEET, 0.0);
-        Assert.assertNotEquals(quantity1, quantity2);
+        Quantity inchValue = new Quantity(Units.INCH, 0.0);
+        Quantity feetValue = new Quantity(Units.FEET, 0.0);
+        Assert.assertNotEquals(inchValue, feetValue);
     }
-
 
     @Test
     public void givenBothInches_HasSameReferance_ShouldReturnEquals() {
-        Quantity quantity1 = new Quantity(Units.INCH, 0.0);
-        Quantity quantity2 = new Quantity(Units.INCH, 0.0);
-        Assert.assertEquals(quantity1, quantity2);
+        Quantity inchValue1 = new Quantity(Units.INCH, 0.0);
+        Quantity inchValue2 = new Quantity(Units.INCH, 0.0);
+        Assert.assertEquals(inchValue1, inchValue2);
     }
 
     @Test
     public void given1YardAnd36Inch_ShouldReturnEqual() {
-        Quantity yard = new Quantity(Units.YARD, 1.0);
-        Quantity inch = new Quantity(Units.INCH, 36.0);
-        boolean result = yard.compare(inch,Units.INCH);
+        Quantity yardValue = new Quantity(Units.YARD, 1.0);
+        Quantity inchValue = new Quantity(Units.INCH, 36.0);
+        boolean result = yardValue.compare(inchValue,Units.INCH);
         Assert.assertTrue(result);
     }
 
     @Test
     public void given36InchAnd1Yard_ShouldReturnEqual() {
-        Quantity inch = new Quantity(Units.INCH, 36.0);
-        Quantity yard = new Quantity(Units.YARD, 1.0);
-        boolean result = inch.compare(yard,Units.YARD);
+        Quantity inchValue = new Quantity(Units.INCH, 36.0);
+        Quantity yardValue = new Quantity(Units.YARD, 1.0);
+        boolean result = inchValue.compare(yardValue,Units.YARD);
         Assert.assertTrue(result);
     }
 
     @Test
     public void given1YardAnd3Feet_ShouldReturnEqual() {
-        Quantity yard = new Quantity(Units.YARD, 1.0);
-        Quantity feet = new Quantity(Units.FEET, 3.0);
-        boolean result = yard.compare(feet,Units.YARD);
+        Quantity yardValue = new Quantity(Units.YARD, 1.0);
+        Quantity feetValue = new Quantity(Units.FEET, 3.0);
+        boolean result = yardValue.compare(feetValue,Units.YARD);
         Assert.assertTrue(result);
     }
 
     @Test
     public void given3FeetAnd1Yard_ShouldReturnEqual() {
-        Quantity feet = new Quantity(Units.FEET, 3.0);
-        Quantity yard = new Quantity(Units.YARD, 1.0);
-        boolean result = feet.compare(yard,Units.YARD);
+        Quantity feetValue = new Quantity(Units.FEET, 3.0);
+        Quantity yardValue = new Quantity(Units.YARD, 1.0);
+        boolean result = feetValue.compare(yardValue,Units.YARD);
         Assert.assertTrue(result);
     }
 
     @Test
     public void given1FeetAnd1Yard_ShouldReturnNotEqual() {
-        Quantity feet = new Quantity(Units.FEET, 1.0);
-        Quantity yard = new Quantity(Units.YARD, 1.0);
-        boolean result = feet.compare(yard,Units.YARD);
+        Quantity feetValue = new Quantity(Units.FEET, 1.0);
+        Quantity yardValue = new Quantity(Units.YARD, 1.0);
+        boolean result = feetValue.compare(yardValue,Units.YARD);
         Assert.assertFalse(result);
     }
 
     @Test
     public void given1InchAnd1Yard_ShouldReturnNotEqual() {
-        Quantity inch = new Quantity(Units.INCH, 1.0);
-        Quantity yard = new Quantity(Units.YARD, 1.0);
-        boolean result = inch.compare(yard,Units.YARD);
+        Quantity inchValue = new Quantity(Units.INCH, 1.0);
+        Quantity yardValue = new Quantity(Units.YARD, 1.0);
+        boolean result = inchValue.compare(yardValue,Units.YARD);
         Assert.assertFalse(result);
     }
 
     @Test
     public void given2InchAnd5Cm_ShouldReturnEqual() {
-        Quantity inch= new Quantity(Units.INCH, 3.0);
-        Quantity centimeter = new Quantity(Units.CENTIMETER, 7.5);
-        boolean result = inch.compare(centimeter,Units.CENTIMETER);
+        Quantity inchValue = new Quantity(Units.INCH, 3.0);
+        Quantity centimeterValue = new Quantity(Units.CENTIMETER, 7.5);
+        boolean result = inchValue.compare(centimeterValue,Units.CENTIMETER);
         Assert.assertTrue(result);
     }
 
@@ -230,25 +229,25 @@ public class QuantityTest {
 
     @Test
     public void given1LitreAnd1000Mililiter_ShouldReturnEquals() {
-        Quantity liter = new Quantity(Units.LITRE, 1.0);
-        Quantity miliLiter = new Quantity(Units.MILLILITER, 1000.0);
-        boolean result = liter.compare(miliLiter,Units.LITRE);
+        Quantity literValue = new Quantity(Units.LITRE, 1.0);
+        Quantity miliLiterValue = new Quantity(Units.MILLILITER, 1000.0);
+        boolean result = literValue.compare(miliLiterValue,Units.LITRE);
         Assert.assertTrue(result);
     }
 
     @Test
     public void given1GallonAnd3dot78Litre_ShouldReturnEquals() {
-        Quantity gallon = new Quantity(Units.GALLON, 1.0);
-        Quantity liter = new Quantity(Units.LITRE, 3.78);
-        boolean result = gallon.compare(liter,Units.LITRE);
+        Quantity gallonValue = new Quantity(Units.GALLON, 1.0);
+        Quantity literValue = new Quantity(Units.LITRE, 3.78);
+        boolean result = gallonValue.compare(literValue,Units.LITRE);
         Assert.assertTrue(result);
     }
 
     @Test
     public void given1GallonAnd3dot78liter_ShouldReturnEqaulsTo7dot57liters() {
         Quantity gallonValue = new Quantity(Units.GALLON, 1.0);
-        Quantity literValue1 = new Quantity(Units.LITRE, 3.78);
-        double sumValue = gallonValue.unitsAddition(literValue1);
+        Quantity literValue = new Quantity(Units.LITRE, 3.78);
+        double sumValue = gallonValue.unitsAddition(literValue);
         Assert.assertEquals(7.57,sumValue,0.1);
     }
 
@@ -293,6 +292,14 @@ public class QuantityTest {
         Quantity celsiusValue = new Quantity(Units.CELSIUS, 1.0);
         Quantity fahrenheitValue = new Quantity(Units.FAHRENHEIT, 33.8);
         boolean result = celsiusValue.compare(fahrenheitValue,Units.CELSIUS);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given212FahrenheitAnd100Celsius_ShouldReturnEqual() {
+        Quantity celsius = new Quantity(Units.CELSIUS, 100.0);
+        Quantity fahrenheit = new Quantity(Units.FAHRENHEIT, 212.0);
+        boolean result = celsius.compare(fahrenheit, Units.CELSIUS);
         Assert.assertTrue(result);
     }
 }

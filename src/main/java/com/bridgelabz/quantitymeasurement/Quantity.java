@@ -11,7 +11,7 @@ public class Quantity {
 
     public boolean compare(Quantity thatUnits, Units comparingUnitType) {
         switch (comparingUnitType) {
-            case CELSIUS:
+            case CELSIUS :
                 Double value1 = ((this.value * 9 / 5)+ 32);
                 Double value2 = thatUnits.value;
                 return (value1.compareTo(value2)==0);
