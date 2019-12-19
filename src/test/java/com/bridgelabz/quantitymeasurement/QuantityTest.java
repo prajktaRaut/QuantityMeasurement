@@ -277,4 +277,14 @@ public class QuantityTest {
         boolean result = tonneValue.compare(kilogramValue);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given1TonneAnd1000Gram_ShouldReturnEqualsTo1001Kg() {
+        Quantity tonneValue = new Quantity(Units.TONNE, 1.0);
+        Quantity gramValue = new Quantity(Units.GRAM, 1000.0);
+        Quantity kilogramValue = new Quantity(Units.KILOGRAM, 1001.0);
+        double sumValue = tonneValue.unitsAddition(gramValue);
+        boolean result = kilogramValue.compare(new Quantity(Units.LITRE, sumValue));
+        Assert.assertTrue(result);
+    }
 }
