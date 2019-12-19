@@ -304,6 +304,13 @@ public class QuantityTest {
     }
 
     @Test
+    public void given1celsisuAnd1celsisu_ShouldReturnEqual() {
+        Quantity feetValue1 = new Quantity(Units.CELSIUS,1.0);
+        Quantity feetValue2= new Quantity(Units.CELSIUS,1.0);
+        Assert.assertEquals(feetValue1,feetValue2);
+    }
+
+    @Test
     public void given1CelsiusAnd33dot8Fahrenheit_ShouldRetrunEqual() {
         Quantity celsiusValue = new Quantity(Units.CELSIUS, 1.0);
         Quantity fahrenheitValue = new Quantity(Units.FAHRENHEIT, 33.8);
@@ -317,13 +324,5 @@ public class QuantityTest {
         Quantity fahrenheit = new Quantity(Units.FAHRENHEIT, 212.0);
         boolean result = celsius.compare(fahrenheit, Units.CELSIUS);
         Assert.assertTrue(result);
-    }
-
-    @Test
-    public void given1celsiusAnd1Fahrenheit_ShouldReturnNotEqual() {
-        Quantity celcisuValue = new Quantity(Units.CELSIUS, 1.0);
-        Quantity fahrenheitValue = new Quantity(Units.FAHRENHEIT, 1.0);
-        boolean result = celcisuValue.compare(fahrenheitValue, Units.CELSIUS);
-        Assert.assertFalse(result);
     }
 }

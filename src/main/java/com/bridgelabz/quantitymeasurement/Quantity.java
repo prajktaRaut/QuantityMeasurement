@@ -16,9 +16,9 @@ public class Quantity {
                 Double value2 = thatUnits.value;
                 return (value1.compareTo(value2)==0);
             default:
-                Double value3 = this.units.getValue()*this.value;
-                Double value4= thatUnits.units.getValue()*thatUnits.value;
-                return (value3.compareTo(value4)==0);
+                value1 = this.units.getValue()*this.value;
+                value2= thatUnits.units.getValue()*thatUnits.value;
+                return (value1.compareTo(value2)==0);
         }
     }
 
