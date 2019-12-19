@@ -186,7 +186,8 @@ public class QuantityTest {
         Length inchValue1 = new Length(Units.INCH, 2.0);
         Length inchValue2 = new Length(Units.INCH, 2.0);
         Length inchValue3 = new Length(Units.INCH, 4.0);
-        boolean result = inchValue3.addAndCompare(inchValue1, inchValue2, inchValue3);
+        double sumValue = inchValue1.unitsAddition(inchValue2);
+        boolean result = inchValue3.compare(new Length(Units.INCH, sumValue));
         Assert.assertTrue(result);
     }
 }
