@@ -261,4 +261,12 @@ public class QuantityTest {
         boolean result = literValue2.compare(new Quantity(Units.LITRE, sumValue));
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given1KgAnd1000Gram_ShouldReturnEquals() {
+        Quantity kilogramValue = new Quantity(Units.KILOGRAM, 1.0);
+        Quantity gramValue = new Quantity(Units.GRAM, 1000.0);
+        boolean result = kilogramValue.compare(gramValue);
+        Assert.assertTrue(result);
+    }
 }
