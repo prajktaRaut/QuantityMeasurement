@@ -287,4 +287,12 @@ public class QuantityTest {
         boolean result = kilogramValue.compare(new Quantity(Units.LITRE, sumValue));
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given1CelsiusAnd33dot8Fahrenheit_ShouldRetrunEqual() {
+        Quantity celsiusValue = new Quantity(Units.CELSIUS, 1.0);
+        Quantity fahrenheitValue = new Quantity(Units.FAHRENHEIT, 33.8);
+        boolean result = celsiusValue.compareTemperature(fahrenheitValue,Units.CELSIUS);
+        Assert.assertTrue(result);
+    }
 }
