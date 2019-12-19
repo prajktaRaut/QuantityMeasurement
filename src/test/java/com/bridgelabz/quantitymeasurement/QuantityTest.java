@@ -243,4 +243,14 @@ public class QuantityTest {
         boolean result = gallon.compare(liter);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given1GallonAnd3dot78liter_ShouldReturnEqaulsTo7dot57liters() {
+        Quantity feetValue1 = new Quantity(Units.GALLON, 1.0);
+        Quantity feetValue2 = new Quantity(Units.LITRE, 3.78);
+        double sumValue = feetValue1.unitsAddition(feetValue2)/1000;
+        Assert.assertEquals(7.57,sumValue,0.1);
+    }
+
+
 }
