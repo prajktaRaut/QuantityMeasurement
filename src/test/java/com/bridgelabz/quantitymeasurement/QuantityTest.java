@@ -181,40 +181,40 @@ public class QuantityTest {
 
     @Test
     public void given2inchPlus2InchAnd4Inch_ShouldReturnEqualsTo4Inch() {
-        Quantity inchValue1 = new Quantity(Units.INCH, 2.0);
-        Quantity inchValue2 = new Quantity(Units.INCH, 2.0);
+        UnitsOperation inchValue1 = new UnitsOperation(Units.INCH, 2.0);
+        UnitsOperation inchValue2 = new UnitsOperation(Units.INCH, 2.0);
         Quantity inchValue3 = new Quantity(Units.INCH, 4.0);
-        double sumValue = inchValue1.unitsAddition(inchValue2);
+        double sumValue = inchValue1.unitsAdditionOperation(inchValue2);
         boolean result = inchValue3.compare(new Quantity(Units.INCH, sumValue),Units.INCH);
         Assert.assertTrue(result);
     }
 
     @Test
     public void given1FeetAnd2Inch_ShouldReturnEqaulsTo14Inch() {
-        Quantity feetValue = new Quantity(Units.FEET, 1.0);
-        Quantity inchValue1 = new Quantity(Units.INCH, 2.0);
+        UnitsOperation feetValue = new UnitsOperation(Units.FEET, 1.0);
+        UnitsOperation inchValue1 = new UnitsOperation(Units.INCH, 2.0);
         Quantity inchValue2 = new Quantity(Units.INCH, 14.0);
-        double sumValue = feetValue.unitsAddition(inchValue1);
+        double sumValue = feetValue.unitsAdditionOperation(inchValue1);
         boolean result = inchValue2.compare(new Quantity(Units.INCH, sumValue),Units.INCH);
         Assert.assertTrue(result);
     }
 
     @Test
     public void given1FeetAnd1Feet_ShouldReturnEqaulsTo24Inch() {
-        Quantity feetValue1 = new Quantity(Units.FEET, 1.0);
-        Quantity feetValue2 = new Quantity(Units.FEET, 1.0);
+        UnitsOperation feetValue1 = new UnitsOperation(Units.FEET, 1.0);
+        UnitsOperation feetValue2 = new UnitsOperation(Units.FEET, 1.0);
         Quantity inchValue = new Quantity(Units.INCH, 24.0);
-        double sumValue = feetValue1.unitsAddition(feetValue2);
+        double sumValue = feetValue1.unitsAdditionOperation(feetValue2);
         boolean result = inchValue.compare(new Quantity(Units.INCH, sumValue),Units.INCH);
         Assert.assertTrue(result);
     }
 
     @Test
     public void given2InchAnd2dot5cm_ShouldReturnEqaulsTo3Inch() {
-        Quantity inchValue1 = new Quantity(Units.INCH, 2.0);
-        Quantity centimeterValue = new Quantity(Units.CENTIMETER, 2.5);
+        UnitsOperation inchValue1 = new UnitsOperation(Units.INCH, 2.0);
+        UnitsOperation centimeterValue = new UnitsOperation(Units.CENTIMETER, 2.5);
         Quantity inchValue2 = new Quantity(Units.INCH, 3.0);
-        double sumValue = inchValue1.unitsAddition(centimeterValue);
+        double sumValue = inchValue1.unitsAdditionOperation(centimeterValue);
         boolean result = inchValue2.compare(new Quantity(Units.INCH, sumValue),Units.INCH);
         Assert.assertTrue(result);
     }
@@ -253,18 +253,18 @@ public class QuantityTest {
 
     @Test
     public void given1GallonAnd3dot78liter_ShouldReturnEqaulsTo7dot57liters() {
-        Quantity gallonValue = new Quantity(Units.GALLON, 1.0);
-        Quantity literValue = new Quantity(Units.LITRE, 3.78);
-        double sumValue = gallonValue.unitsAddition(literValue);
+        UnitsOperation gallonValue = new UnitsOperation(Units.GALLON, 1.0);
+        UnitsOperation literValue = new UnitsOperation(Units.LITRE, 3.78);
+        double sumValue = gallonValue.unitsAdditionOperation(literValue);
         Assert.assertEquals(7.57,sumValue,0.1);
     }
 
     @Test
     public void given1LiterAnd1000ml_ShouldReturnEqualsTo2Liters() {
-        Quantity literValue1 = new Quantity(Units.LITRE, 1.0);
-        Quantity milliliterValue = new Quantity(Units.MILLILITER, 1000.0);
+        UnitsOperation literValue1 = new UnitsOperation(Units.LITRE, 1.0);
+        UnitsOperation milliliterValue = new UnitsOperation(Units.MILLILITER, 1000.0);
         Quantity literValue2 = new Quantity(Units.LITRE, 2.0);
-        double sumValue = literValue1.unitsAddition(milliliterValue);
+        double sumValue = literValue1.unitsAdditionOperation(milliliterValue);
         boolean result = literValue2.compare(new Quantity(Units.LITRE, sumValue),Units.LITRE);
         Assert.assertTrue(result);
     }

@@ -30,10 +30,4 @@ public class Quantity {
         return Double.compare(quantity.value, value) == 0 &&
                                 units == quantity.units;
     }
-
-    public double unitsAddition(Quantity thatUnits) {
-        Double value1 = this.units.getValue()*this.value;
-        Double value2= thatUnits.units.getValue()*thatUnits.value;
-        return (value1 + value2);
-    }
 }
