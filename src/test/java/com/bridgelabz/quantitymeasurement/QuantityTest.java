@@ -295,10 +295,10 @@ public class QuantityTest {
 
     @Test
     public void given1TonneAnd1000Gram_ShouldReturnEqualsTo1001Kg() {
-        Quantity tonneValue = new Quantity(Units.TONNE, 1.0);
-        Quantity gramValue = new Quantity(Units.GRAM, 1000.0);
+        UnitsOperation tonneValue = new UnitsOperation(Units.TONNE,1.0);
+        UnitsOperation gramValue = new UnitsOperation(Units.GRAM, 1000.0);
         Quantity kilogramValue = new Quantity(Units.KILOGRAM, 1001.0);
-        double sumValue = tonneValue.unitsAddition(gramValue);
+        double sumValue = tonneValue.unitsAdditionOperation(gramValue);
         boolean result = kilogramValue.compare(new Quantity(Units.LITRE, sumValue),Units.KILOGRAM);
         Assert.assertTrue(result);
     }
